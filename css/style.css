@@ -1,0 +1,146 @@
+/*обнуление стилей*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height: 100%;width: 100%;font-size: 100%;line-height: 1;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input,button,textarea{font-family:inherit;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*=====================================================================*/
+img{display:block;}
+input{border:none;}
+::placeholder{color:#000;}
+a{ display: inline-block; transition: all .2s ease;}
+
+/* уберает крестик у input в браузерах IE, Firefox, Chrome и Opera. */
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+/* при наведении на input placeholder="...." будет срабатывать hover и текс будет исчезать*/
+:hover::-webkit-input-placeholder {color: transparent}
+:hover::-moz-placeholder {color: transparent}
+:hover:-moz-placeholder {color: transparent}
+:hover:-ms-input-placeholder {color: transparent}
+
+/* font-family */
+@font-face {
+   font-family: kamerik-3d;
+   src: url(../fonts/kamerik205-heavy.woff2);
+   font-weight: 900;
+}
+@font-face {
+   font-family: merriweather;
+   src: url(../fonts/merriweather-regular-italic.woff2);
+}
+body {
+   background-color: #000;
+   color: #fff;
+   font-family: 'kamerik-3d';
+   /* transition: all .2s linear; */
+}
+:root {
+   --index: calc(1vw + 1vh);
+   --transition: 1s linear;
+}
+/* ============================================================ */
+.logo {
+   background-repeat: no-repeat;
+   width: calc(var(--index) * 7.8);
+   height: calc(var(--index) * 7.8);
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   top: calc(var(--index) * 2.9);
+   z-index: 1;
+}
+.layers {
+   perspective: 1000px;
+   overflow: hidden;
+}
+.layers__container {
+   height: 100vh;
+   min-height: 500px;
+   transform-style: preserve-3d;
+
+   /* когда есть динамический трансформ надо указывать will-change */
+   transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+   will-change: transform;
+   transition: transform var(--transition);
+
+   letter-spacing: calc(var(--index) * -.15);
+   line-height: 2.9em;
+   margin-top: calc(var(--index) * 5.5);
+}
+.layers__item {
+   position: absolute;
+   inset: -5vw;
+   background-size: cover;
+   background-position: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+}
+.layers-1 {
+   transform: translateZ(-150px) scale(1.8);
+}
+.layers-2 {
+   transform: translateZ(80px) scale(.95);
+}
+.layers-3 {
+   transform: translateZ(180px) scale(.95);
+}
+.layers-4 {
+   transform: translateZ(190px) scale(.95);
+}
+.layers-5 {
+   transform: translateZ(300px) scale(.95);
+}
+.layers-6 {
+   transform: translateZ(380px) scale(1.2);
+}
+.hero-content {
+   font-size: calc(var(--index) * 2.5);
+   text-align: center;
+   text-transform: uppercase;
+}
+.hero-content span {
+   display: block;
+}
+.hero-content__p {
+   font-size: 18px;
+   letter-spacing: 1.5px;
+   font-family: merriweather;
+}
+.button-start {
+   padding: 8px 30px;
+   font-size: 20px;
+   background-color: transparent;
+   color: #fff;
+   border: 1px solid;
+   border-radius: 5px;
+   text-shadow: 0 0 50px #000;
+   box-shadow: 0 0 3px 0 #fff, inset 0 0 5px 0 #000;
+   outline: none;
+   cursor: pointer;
+}
+
+.layers-4,
+.layers-5,
+.layers-6 {
+   pointer-events: none;
+}
+
+.rain {
+}
